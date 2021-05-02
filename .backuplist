@@ -1,0 +1,27 @@
+# Backup
+.backuplist
+upd-conf.py
+
+# vim
+.vimrc
+.config/nvim/coc-settings.json
+
+# shell
+.config/fish/config.fish
+.tmux.conf
+.zshrc
+
+# terminal
+.config/kitty/kitty.conf
+.config/alacritty/alacritty.yml
+
+# xmonad
+.xmonad/xmonad.hs
+.config/xmobar/xmobarrc
+.config/xmobar/xpm/
+
+# picom
+.config/picom/picom.conf
+
+# git
+.gitconfig

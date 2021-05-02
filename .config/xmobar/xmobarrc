@@ -1,0 +1,24 @@
+Config { font = "xft:Noto Sans Mono:weight=regular:pixelsize=14:antialias=true:hinting=true"
+       , additionalFonts = []
+       , bgColor = "#222"
+       , fgColor = "#dfdfdf"
+       , position = Static {xpos = 0, ypos = 1045, width = 1824, height = 25 }
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = True
+       , hideOnStart = False
+       , allDesktops = True
+       , textOffset  = -1
+       , iconRoot = "/home/dknite/.config/xmobar"
+       , commands = [ Run Wireless "wlo1" ["-t", "<box type=Bottom width=2 color=#9f78e1><icon=xpm/wifi_20.xpm/> <ssid></box>"] 10
+                    , Run Cpu ["-t", "<box type=Bottom width=2 color=#f90000><icon=xpm/cpu_20.xpm/><total>%</box>"] 10
+                    , Run Memory ["-t","<box type=Bottom width=2 color=#4bffdc><icon=xpm/memory-icon_20.xpm/><usedratio>%</box>"] 10
+                    , Run Date "<box type=Bottom width=2 color=#0a6cf5><fc=#c2c0c0>%a %d, %H:%M</fc></box>" "date" 10
+                    , Run Alsa "default" "Master" ["-t", "<box type=Bottom width=2 color=#e6a835><action=`pactl -- set-sink-volume 0 -5%` button=5><action=`pactl -- set-sink-volume 0 +5%` button=4><fc=#c2c0c0><icon=xpm/speaker_20.xpm/> <volume>%</fc></action></action></box>"] 
+                    , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <icon=xpm/haskell_20.xpm/> %date%  %UnsafeStdinReader% }{ %alsa:default:Master%  %wlo1wi%  %memory%  %cpu% "
+       }
+

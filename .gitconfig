@@ -1,0 +1,7 @@
+[user]
+	name = Deep Majumder
+	email = deep.majumder2019@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
