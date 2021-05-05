@@ -62,4 +62,4 @@ with open(backup_file) as f:
         print(push_proc.stderr, end='')
         sys.exit(1)
     else:
-        print(push_proc.stdout)
+        print(push_proc.stdout, end='')

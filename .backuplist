@@ -19,6 +19,7 @@ upd-conf.py
 .xmonad/xmonad.hs
 .config/xmobar/xmobarrc
 .config/xmobar/xpm/
+.xinitrc
 
 # picom
 .config/picom/picom.conf

@@ -16,7 +16,7 @@ import qualified Data.Map                  as M
 import qualified XMonad.StackSet           as W
 
 -- Basic Stuff
-myTerminal          = "kitty"
+myTerminal          = "alacritty"
 myBorderWidth       = 2
 myModMask           = mod4Mask
 myWorkspaces        = ["term", "web", "code"] ++ map show [4..9]
