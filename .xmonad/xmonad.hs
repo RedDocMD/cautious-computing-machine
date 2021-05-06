@@ -1,4 +1,5 @@
 import           XMonad
+import           XMonad.Actions.CopyWindow
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
@@ -22,9 +23,10 @@ myModMask           = mod4Mask
 myWorkspaces        = ["term", "web", "code"] ++ map show [4..9]
 
 -- Layout management
-defaultLayout = avoidStruts $ tiled ||| Mirror tiled ||| Full
+defaultLayout = avoidStruts $ tiled ||| Mirror tiled ||| full 
   where
-    tiled = Tall nmaster delta ratio
+    tiled = FS.fullscreenFull $ Tall nmaster delta ratio
+    full  = FS.fullscreenFull Full
     nmaster = 1
     ratio   = 1 / 2
     delta   = 2 / 100
@@ -66,6 +68,9 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 
     --  Reset the layouts on the current workspace to default
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+
+    -- Hide docks
+    , ((modm,               xK_b     ), sendMessage ToggleStruts)
 
     -- Resize viewed windows to the correct size
     , ((modm,               xK_n     ), refresh)
@@ -150,6 +155,9 @@ myManageHook = composeAll
     [ isFullscreen    -->  doFullFloat
     , FS.fullscreenManageHook
     , className =? "Gimp-2.10" --> doFloat
+    , title =? "Picture-in-Picture" --> doFloat
+    , title =? "Picture-in-Picture" --> doF copyToAll
+    , manageDocks
     ]
 
 -- Add a underline in xmobar
@@ -174,6 +182,7 @@ main = do
         , layoutHook        = myLayout
         , startupHook       = myStartupHook
         , manageHook        = myManageHook
+        , handleEventHook   = FS.fullscreenEventHook
         , logHook           = dynamicLogWithPP $ xmobarPP
             {
                  ppOutput = hPutStrLn xmproc
