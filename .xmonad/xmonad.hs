@@ -10,6 +10,7 @@ import           XMonad.Util.Run
 import qualified XMonad.Layout.Fullscreen as FS
 import           XMonad.Layout.SimpleFloat
 import           XMonad.Layout.PerWorkspace (onWorkspace)
+import           XMonad.Layout.Spacing
 
 import           System.Exit
 
@@ -23,13 +24,16 @@ myModMask           = mod4Mask
 myWorkspaces        = ["term", "web", "code"] ++ map show [4..9]
 
 -- Layout management
-defaultLayout = avoidStruts $ tiled ||| Mirror tiled ||| full 
+defaultLayout = spacing $ avoidStruts $ tiled ||| Mirror tiled ||| full 
   where
-    tiled = FS.fullscreenFull $ Tall nmaster delta ratio
-    full  = FS.fullscreenFull Full
-    nmaster = 1
-    ratio   = 1 / 2
-    delta   = 2 / 100
+    tiled        = FS.fullscreenFull $ Tall nmaster delta ratio
+    full         = FS.fullscreenFull Full
+    spacing      = spacingRaw False screenBorder True windowBorder True
+    screenBorder = Border 5 5 5 5
+    windowBorder = Border 5 5 5 5
+    nmaster      = 1
+    ratio        = 1 / 2
+    delta        = 2 / 100
 
 myLayout = onWorkspace "9" simpleFloat defaultLayout
 
@@ -157,6 +161,7 @@ myManageHook = composeAll
     , className =? "Gimp-2.10" --> doFloat
     , title =? "Picture-in-Picture" --> doFloat
     , title =? "Picture-in-Picture" --> doF copyToAll
+    , title =? "Oracle VM VirtualBox Manager" --> doFloat
     , manageDocks
     ]
 
