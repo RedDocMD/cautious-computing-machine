@@ -19,6 +19,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'bkad/CamelCaseMotion'
 Plug 'chriskempson/base16-vim'
+Plug 'rhysd/vim-clang-format'
 
 " Fuzzy search
 Plug 'airblade/vim-rooter'
@@ -86,6 +87,10 @@ if executable('rg')
 endif
 
 let g:rustfmt_autosave = 1
+
+"Clang-Format
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
 
 "Coc Setup
 
