@@ -162,6 +162,7 @@ myManageHook = composeAll
     , title =? "Picture-in-Picture" --> doFloat
     , title =? "Picture-in-Picture" --> doF copyToAll
     , title =? "Oracle VM VirtualBox Manager" --> doFloat
+    , title =? "VirtualBox Machine" --> doFloat
     , className =? "mullvad vpn" --> doFloat
     , manageDocks
     ]
