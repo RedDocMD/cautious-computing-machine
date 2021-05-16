@@ -38,6 +38,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'https://bitbucket.org/spilt/vim-peg', { 'for': 'peg' }
 
 " Typescript
 Plug 'pangloss/vim-javascript'
