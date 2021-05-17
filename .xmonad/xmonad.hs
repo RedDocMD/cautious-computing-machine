@@ -51,6 +51,7 @@ myStartupHook = do
     spawnOnce "xsetroot -cursor_name left_ptr &"
     spawnOnce "trayer --edge bottom --align right --width 5 --height 25 --distancefrom bottom --distance -10 --alpha 0 --tint 0x222222 --transparent true &"
     setWMName "LG3D"
+    spawnOnce "signal-desktop &"
 
 -- Key bindings
 myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
