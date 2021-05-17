@@ -165,6 +165,8 @@ myManageHook = composeAll
     , className =? "VirtualBox Machine" --> doFloat
     , className =? "mullvad vpn" --> doFloat
     , className =? "Steam" --> doFloat
+    , className =? "signal" --> doFloat
+    , className =? "signal" --> doShift "9"
     , manageDocks
     ]
 
