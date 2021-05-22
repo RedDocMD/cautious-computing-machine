@@ -11,6 +11,7 @@ end
 set -x EDITOR nvim
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -x RANGER_LOAD_DEFAULT_RC FALSE
+set -x pager less
 
 # exa for ls
 if command -v exa > /dev/null

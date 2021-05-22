@@ -21,6 +21,14 @@ upd-conf.py
 .config/xmobar/xpm/
 .xinitrc
 
+# polybar
+.config/polybar/config
+.config/polybar/launch.sh
+
+# bspwm
+.config/bspwm/bspwmrc
+.config/sxhkd/sxhkdrc
+
 # picom
 .config/picom/picom.conf
 

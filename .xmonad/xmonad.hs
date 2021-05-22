@@ -13,6 +13,7 @@ import           XMonad.Layout.PerWorkspace (onWorkspace)
 import           XMonad.Layout.Spacing
 
 import           System.Exit
+import           Data.List
 
 import qualified Data.Map                  as M
 import qualified XMonad.StackSet           as W
@@ -52,6 +53,9 @@ myStartupHook = do
     spawnOnce "trayer --edge bottom --align right --width 5 --height 25 --distancefrom bottom --distance -10 --alpha 0 --tint 0x222222 --transparent true &"
     setWMName "LG3D"
 
+-- Spawns something in the terminal
+spawnTerminal command = spawn $ unwords [myTerminal, "-e", command]
+
 -- Key bindings
 myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 
@@ -59,7 +63,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- run ranger
-    , ((modm,               xK_a     ), spawn $ myTerminal ++ " ranger")
+    , ((modm,               xK_a     ), spawnTerminal "ranger")
     
     -- Lock screen
     , ((controlMask .|. mod1Mask, xK_l), spawn "slock")
@@ -114,12 +118,6 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
-
-    -- Toggle the status bar gap
-    -- Use this binding with avoidStruts from Hooks.ManageDocks.
-    -- See also the statusBar function from Hooks.DynamicLog.
-    --
-    -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io exitSuccess)
