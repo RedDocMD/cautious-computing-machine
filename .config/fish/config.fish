@@ -21,6 +21,12 @@ if command -v exa > /dev/null
     abbr -a lla exa -la
 end
 
+# source autojump
+set --local AUTOJUMP_PATH /usr/share/autojump/autojump.fish
+if test -e $AUTOJUMP_PATH
+    source $AUTOJUMP_PATH
+end
+
 # git abbreviations
 abbr -a gaa git add .
 abbr -a gcam git commit -am

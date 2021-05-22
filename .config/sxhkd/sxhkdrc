@@ -6,6 +6,9 @@
 super + shift + Return
 	alacritty
 
+# start ranger
+    alacritty -e ranger
+
 # program launcher
 #super + @space
 	#rofi -show run	

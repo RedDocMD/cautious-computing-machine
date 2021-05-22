@@ -25,6 +25,7 @@ bspc rule -a Screenkey manage=off
 bspc rule -a polybar border=off manage=off
 bspc rule -a ulauncher focus=on
 bspc rule -a vlc desktop='^9' state=fullscreen
+bspc rule -a "JetBrains Toolbox" state=floating
 
 picom &
 nitrogen --restore &
