@@ -7,12 +7,45 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/main]
+[bar/internal]
 width = 100%
 height = 2.5%
 radius = 6.0
 fixed-center = false
 bottom = true
+monitor = eDP-1-1
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-size = 0
+border-bottom-size = 11
+line-size = 2
+padding = 1
+module-margin = 1
+
+font-0 = "Noto Sans Mono:size=10;1"
+font-1 = "Noto Sans Mono:size=10;1"
+font-2 = "Noto Sans Symbols:size=10;1"
+font-3 = "Noto Sans Symbols2:size=10;1"
+
+modules-left = date bspwm xwindow
+modules-center =
+modules-right = pulseaudio wlan cpu memory
+
+tray-position = right
+tray-padding = 2
+tray-maxsize = 24
+
+wm-restack = bspwm
+
+[bar/external]
+width = 100%
+height = 2.5%
+radius = 6.0
+fixed-center = false
+bottom = true
+monitor = HDMI-0
 
 background = ${colors.background}
 foreground = ${colors.foreground}

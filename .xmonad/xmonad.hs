@@ -50,8 +50,10 @@ myStartupHook = do
     -- spawnOnce "/home/dknite/.config/polybar/launch.sh &"
     spawnOnce "picom &"
     spawnOnce "xsetroot -cursor_name left_ptr &"
-    spawnOnce "trayer --edge bottom --align right --width 5 --height 25 --distancefrom bottom --distance -10 --alpha 0 --tint 0x222222 --transparent true &"
+    -- spawnOnce "trayer --edge bottom --align right --width 5 --height 25 --distancefrom bottom --distance -10 --alpha 0 --tint 0x222222 --transparent true &"
+    spawnOnce "trayer --edge bottom --align right --width 5 --height 25 --alpha 0 --tint 0x222222 --transparent true &"
     setWMName "LG3D"
+    spawnOnce "xrandr --output HDMI-0 --auto --output eDP-1-1 --auto --right-of HDMI-0"
 
 -- Spawns something in the terminal
 spawnTerminal command = spawn $ unwords [myTerminal, "-e", command]

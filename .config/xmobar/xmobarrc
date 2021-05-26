@@ -2,7 +2,7 @@ Config { font = "xft:Noto Sans Mono:weight=regular:pixelsize=14:antialias=true:h
        , additionalFonts = []
        , bgColor = "#222"
        , fgColor = "#dfdfdf"
-       , position = Static {xpos = 0, ypos = 1045, width = 1824, height = 25 }
+       , position = Static {xpos = 0, ypos = 1055, width = 1824, height = 25 }
        , lowerOnStart = True
        , pickBroadest = False
        , persistent = True
