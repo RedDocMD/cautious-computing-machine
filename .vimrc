@@ -100,7 +100,8 @@ let g:coc_global_extensions = [
   \ 'coc-rust-analyzer',
   \ 'coc-json',
   \ 'coc-pyright',
-  \ 'coc-solargraph'
+  \ 'coc-solargraph',
+  \ 'coc-clangd'
   \ ]
 
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')

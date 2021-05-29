@@ -9,7 +9,9 @@ end
 
 # Set environment variables
 set -x EDITOR nvim
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+if command -v bat > /dev/null
+    set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+end
 set -x RANGER_LOAD_DEFAULT_RC FALSE
 set -x pager less
 
@@ -33,7 +35,18 @@ abbr -a gcam git commit -am
 abbr -a gcm git commit -m
 abbr -a glog git log --oneline --decorate --graph
 abbr -a gst git status
-abbr -a gdf "git diff --name-only --diff-filter=d | xargs bat --diff"
+if command -v bat > /dev/null
+    abbr -a gdf "git diff --name-only --diff-filter=d | xargs bat --diff"
+end
+
+function diff -d "Fancy diff from Git"
+    if command -v diff-so-fancy > /dev/null
+        command git diff --color $argv | diff-so-fancy | less -r
+    else
+        command git diff --color $argv
+    end
+end
+
 
 abbr -a e nvim
 
