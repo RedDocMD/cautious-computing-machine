@@ -34,3 +34,6 @@ upd-conf.py
 
 # git
 .gitconfig
+
+# vscode
+.config/Code/User/settings.json

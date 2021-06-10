@@ -1,0 +1,117 @@
+{
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Material Theme Ocean High Contrast",
+    "editor.fontFamily": "FiraCode NF",
+    "editor.fontLigatures": true,
+    "window.menuBarVisibility": "compact",
+    "window.titleBarStyle": "custom",
+    "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+    "python.showStartPage": false,
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<Space>",
+    "vim.surround": true,
+    "vim.camelCaseMotion.enable": true,
+    "vim.highlightedyank.enable": true,
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-k>"],
+            "after": ["<Esc>"]
+        },
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<leader>", "w"],
+            "commands": [
+                "workbench.action.files.save",
+            ]
+        },
+        {
+            "before": ["K"],
+            "commands": [
+                "editor.action.showHover",
+            ]
+        },
+        {
+            "before": ["<leader>", "p"],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": ["<leader>", ";"],
+            "commands": [
+                "workbench.action.showAllEditors"
+            ]
+        },
+        {
+            "before": ["L"],
+            "after": ["$"]
+        },
+        {
+            "before": ["H"],
+            "after": ["^"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-k>"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["<C-h>"],
+            "after": [":nohl"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-k>"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["<C-h>"],
+            "after": [":nohl"]
+        }
+    ],
+    "vim.operatorPendingModeKeyBindings": [
+        {
+            "before": ["L"],
+            "after": ["$"]
+        },
+        {
+            "before": ["H"],
+            "after": ["^"]
+        },
+    ],
+    "go.toolsManagement.autoUpdate": true,
+    "haskell.formattingProvider": "stylish-haskell",
+    "clang-format.assumeFilename": ".clang-format",
+    "git.confirmSync": false,
+    "rust-analyzer.completion.addCallArgumentSnippets": false,
+    "rust-analyzer.inlayHints.enable": false
+}

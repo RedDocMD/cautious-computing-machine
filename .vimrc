@@ -48,6 +48,9 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 "Plug 'takac/vim-hardtime'
 
+" Julia
+Plug 'JuliaEditorSupport/julia-vim'
+
 call plug#end()
 
 if has('nvim')

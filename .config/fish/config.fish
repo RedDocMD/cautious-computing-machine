@@ -61,6 +61,14 @@ set -px PATH $HOME/.local/bin
 set -px PATH $HOME/.local/share/gem/ruby/3.0.0/bin
 set -px PATH $HOME/.cargo/bin
 set -px PATH $HOME/software/node-v14.16.1-linux-x64/bin
+set -px PATH $HOME/software/platform-tools
+set -px PATH $HOME/software/julia-1.6.1/bin
+
+# For ccache
+if command -v ccache > /dev/null
+    set -x USE_CCACHE 1
+    set -x CCACHE_EXEC /usr/bin/ccache
+end
 
 # starship
 if command -v starship > /dev/null
