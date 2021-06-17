@@ -68,13 +68,20 @@ export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin":$PATH
 export PATH="$HOME/.cargo/bin":$PATH
 export PATH="$HOME/software/node-v14.16.1-linux-x64/bin":$PATH
 export PATH="$HOME/software/platform-tools":$PATH
-export PATH="$HOME/software/julia-1.6.1/bin"$PATH
+export PATH="$HOME/software/julia-1.6.1/bin":$PATH
 
 # For ccache
 if command -v ccache > /dev/null; then
     export USE_CACHE=1
     export CCACHE_EXEC=/usr/bin/ccache
 fi
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
 
 command -v starship > /dev/null && eval "$(starship init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

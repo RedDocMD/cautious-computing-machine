@@ -1,12 +1,8 @@
 {
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Material Theme Ocean High Contrast",
     "editor.fontFamily": "FiraCode NF",
     "editor.fontLigatures": true,
     "window.menuBarVisibility": "compact",
@@ -113,5 +109,6 @@
     "clang-format.assumeFilename": ".clang-format",
     "git.confirmSync": false,
     "rust-analyzer.completion.addCallArgumentSnippets": false,
-    "rust-analyzer.inlayHints.enable": false
+    "workbench.colorTheme": "One Dark Pro",
+    "redhat.telemetry.enabled": false
 }
