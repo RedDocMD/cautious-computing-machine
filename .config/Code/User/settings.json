@@ -9,7 +9,6 @@
     "window.titleBarStyle": "custom",
     "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
     "python.showStartPage": false,
-    "C_Cpp.intelliSenseEngine": "Disabled",
     "vim.incsearch": true,
     "vim.hlsearch": true,
     "vim.leader": "<Space>",
