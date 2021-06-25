@@ -11,6 +11,7 @@ end
 set -x EDITOR nvim
 if command -v bat > /dev/null
     set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+    set -x MANROFFOPT "-c"
 end
 set -x RANGER_LOAD_DEFAULT_RC FALSE
 set -x pager less
@@ -60,7 +61,7 @@ abbr -a paci "pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro s
 set -px PATH $HOME/.local/bin
 set -px PATH $HOME/.local/share/gem/ruby/3.0.0/bin
 set -px PATH $HOME/.cargo/bin
-set -px PATH $HOME/software/node-v14.16.1-linux-x64/bin
+set -px PATH $HOME/software/node-v14.17.1-linux-x64/bin
 set -px PATH $HOME/software/platform-tools
 set -px PATH $HOME/software/julia-1.6.1/bin
 

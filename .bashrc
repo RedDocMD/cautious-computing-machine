@@ -11,6 +11,7 @@ source "$HOME/.cargo/env"
 export EDITOR=nvim
 if command -v bat > /dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    export MANROFFOPT="-c"
 fi
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export pager=less
@@ -56,7 +57,7 @@ alias paci="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sud
 # PATHS
 export PATH="$HOME/.local/bin":$PATH
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin":$PATH
-export PATH="$HOME/software/node-v14.16.1-linux-x64/bin":$PATH
+export PATH="$HOME/software/node-v14.1&.1-linux-x64/bin":$PATH
 export PATH="$HOME/software/platform-tools":$PATH
 export PATH="$HOME/software/julia-1.6.1/bin":$PATH
 
@@ -78,3 +79,4 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -f ~/.config/broot/launcher/bash/br ] && source ~/.config/broot/launcher/bash/br
 
 command -v starship > /dev/null && eval "$(starship init bash)"
+. "$HOME/.cargo/env"
