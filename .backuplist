@@ -38,3 +38,6 @@ upd-conf.py
 
 # vscode
 .config/Code/User/settings.json
+
+# emacs
+.emacs.d/init.el
