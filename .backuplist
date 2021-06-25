@@ -10,6 +10,7 @@ upd-conf.py
 .config/fish/config.fish
 .tmux.conf
 .zshrc
+.bashrc
 
 # terminal
 .config/kitty/kitty.conf
