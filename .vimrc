@@ -11,6 +11,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
 Plug 'airblade/vim-gitgutter'
 "Plug 'kamykn/spelunker.vim'
 
