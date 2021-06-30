@@ -67,7 +67,7 @@ alias paci="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sud
 export PATH="$HOME/.local/bin":$PATH
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin":$PATH
 export PATH="$HOME/.cargo/bin":$PATH
-export PATH="$HOME/software/node-v14.17.1-linux-x64/bin":$PATH
+# export PATH="$HOME/software/node-v14.17.1-linux-x64/bin":$PATH
 export PATH="$HOME/software/platform-tools":$PATH
 export PATH="$HOME/software/julia-1.6.1/bin":$PATH
 
@@ -87,3 +87,8 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 command -v starship > /dev/null && eval "$(starship init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.config/broot/launcher/bash/br ] && source ~/.config/broot/launcher/bash/br
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+

@@ -109,5 +109,8 @@
     "git.confirmSync": false,
     "rust-analyzer.completion.addCallArgumentSnippets": false,
     "workbench.colorTheme": "One Dark Pro",
-    "redhat.telemetry.enabled": false
+    "redhat.telemetry.enabled": false,
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    }
 }
