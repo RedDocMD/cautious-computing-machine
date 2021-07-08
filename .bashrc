@@ -57,7 +57,7 @@ alias paci="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sud
 # PATHS
 export PATH="$HOME/.local/bin":$PATH
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin":$PATH
-export PATH="$HOME/software/node-v14.1&.1-linux-x64/bin":$PATH
+export PATH="$HOME/software/node-v16.4.0-linux-x64/bin":$PATH
 export PATH="$HOME/software/platform-tools":$PATH
 export PATH="$HOME/software/julia-1.6.1/bin":$PATH
 

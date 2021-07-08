@@ -17,52 +17,83 @@
     "vim.highlightedyank.enable": true,
     "vim.insertModeKeyBindingsNonRecursive": [
         {
-            "before": ["<C-k>"],
-            "after": ["<Esc>"]
+            "before": [
+                "<C-k>"
+            ],
+            "after": [
+                "<Esc>"
+            ]
         },
     ],
     "vim.normalModeKeyBindings": [
         {
-            "before": ["<leader>", "w"],
+            "before": [
+                "<leader>",
+                "w"
+            ],
             "commands": [
                 "workbench.action.files.save",
             ]
         },
         {
-            "before": ["K"],
+            "before": [
+                "K"
+            ],
             "commands": [
                 "editor.action.showHover",
             ]
         },
         {
-            "before": ["<leader>", "p"],
+            "before": [
+                "<leader>",
+                "p"
+            ],
             "commands": [
                 "workbench.action.quickOpen"
             ]
         },
         {
-            "before": ["<leader>", ";"],
+            "before": [
+                "<leader>",
+                ";"
+            ],
             "commands": [
                 "workbench.action.showAllEditors"
             ]
         },
         {
-            "before": ["L"],
-            "after": ["$"]
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
         },
         {
-            "before": ["H"],
-            "after": ["^"]
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": ["<C-k>"],
-            "after": ["<Esc>"]
+            "before": [
+                "<C-k>"
+            ],
+            "after": [
+                "<Esc>"
+            ]
         },
         {
-            "before": ["<C-h>"],
-            "after": [":nohl"]
+            "before": [
+                "<C-h>"
+            ],
+            "after": [
+                ":nohl"
+            ]
         }
     ],
     "vim.visualModeKeyBindings": [
@@ -85,22 +116,38 @@
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
-            "before": ["<C-k>"],
-            "after": ["<Esc>"]
+            "before": [
+                "<C-k>"
+            ],
+            "after": [
+                "<Esc>"
+            ]
         },
         {
-            "before": ["<C-h>"],
-            "after": [":nohl"]
+            "before": [
+                "<C-h>"
+            ],
+            "after": [
+                ":nohl"
+            ]
         }
     ],
     "vim.operatorPendingModeKeyBindings": [
         {
-            "before": ["L"],
-            "after": ["$"]
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
         },
         {
-            "before": ["H"],
-            "after": ["^"]
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
         },
     ],
     "go.toolsManagement.autoUpdate": true,
@@ -112,5 +159,41 @@
     "redhat.telemetry.enabled": false,
     "[c]": {
         "editor.defaultFormatter": "xaver.clang-format"
-    }
+    },
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    },
+    "auto-close-tag.activationOnLanguage": [
+        "markdown",
+        "xml",
+        "php",
+        "blade",
+        "ejs",
+        "jinja",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "plaintext",
+        "markdown",
+        "vue",
+        "liquid",
+        "erb",
+        "lang-cfml",
+        "cfml",
+        "HTML (EEx)",
+        "HTML (Eex)",
+        "plist"
+    ],
 }

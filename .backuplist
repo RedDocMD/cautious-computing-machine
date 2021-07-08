@@ -3,7 +3,7 @@
 upd-conf.py
 
 # vim
-.vimrc
+.config/nvim/init.vim
 .config/nvim/coc-settings.json
 
 # shell
