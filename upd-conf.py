@@ -22,7 +22,7 @@ with open(backup_file) as f:
     for line in imp_lines:
         paths.append(home_dir/pathlib.PurePath(line))
 
-    git_comm = ["/usr/bin/git", f"--git-dir={home_dir/pathlib.PurePath('.cfg')}", f"--work-tree={home_dir}"]
+    git_comm = ["/usr/bin/git", f"--git-dir={home_dir/pathlib.PurePath('cfg')/pathlib.PurePath('.git')}", f"--work-tree={home_dir}"]
 
     # Stage files
     print('Staging files ...')

@@ -67,7 +67,7 @@ alias paci="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sud
 export PATH="$HOME/.local/bin":$PATH
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin":$PATH
 export PATH="$HOME/.cargo/bin":$PATH
-export PATH="$HOME/software/node-v16.4.0-linux-x64/bin":$PATH
+export PATH="$HOME/software/node-v14.17.3-linux-x64/bin":$PATH
 export PATH="$HOME/software/platform-tools":$PATH
 export PATH="$HOME/software/julia-1.6.1/bin":$PATH
 
@@ -82,6 +82,12 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+# Fuchsia things
+FUCHSIA_PATH=~/fuchsia
+export PATH=${FUCHSIA_PATH}/.jiri_root/bin:$PATH
+source ${FUCHSIA_PATH}/scripts/fx-env.sh
+export CCACHE_DIR=~/ccache
 
 
 command -v starship > /dev/null && eval "$(starship init zsh)"

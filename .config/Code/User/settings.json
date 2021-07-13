@@ -3,7 +3,7 @@
         "*.ipynb": "jupyter.notebook.ipynb"
     },
     "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "FiraCode NF",
+    "editor.fontFamily": "FiraCode Nerd Font",
     "editor.fontLigatures": true,
     "window.menuBarVisibility": "compact",
     "window.titleBarStyle": "custom",
