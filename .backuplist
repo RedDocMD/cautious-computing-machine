@@ -42,3 +42,7 @@ upd-conf.py
 
 # emacs
 .emacs.d/init.el
+
+# neomutt
+.config/neomutt/neomuttrc
+.msmtprc

@@ -1,0 +1,124 @@
+# Identity
+set realname = "Deep Majumder"
+set from = "Deep Majumder <deep.majumder2019@gmail.com>"
+
+# IMAP settings
+set imap_user = "deep.majumder2019@gmail.com"
+set imap_pass = "`gpg --batch -q --decrypt ~/.config/neomutt/gmail.gpg`"
+set folder = "imaps://imap.gmail.com:993/"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+unset record
+unset trash
+
+set mail_check = 15
+# set imap_idle
+unset imap_passive
+unset imap_peek
+
+bind index G imap-fetch-mail
+bind index b search-opposite
+
+# SMTP Settings
+set sendmail = "/usr/bin/msmtp -a gmail"
+unset abort_nosubject
+# set smtp_user = $imap_user
+# set smtp_pass = $imap_pass
+# set smtp_url = "smtps://smtp.fastmail.com:465/"
+# set smtp_authenticators = "plain"
+
+# Pager settings
+ignore *
+unignore From Date To Cc Bcc Subject
+set pager_stop
+unset markers
+alternative_order text/plain text/enriched text/html
+mime_lookup application/octet-stream
+auto_view text/html
+bind pager j next-line
+bind pager k previous-line
+bind pager H display-toggle-weed
+
+# Index settings
+set header_cache = "~/.config/neomutt/hcache"
+
+# Composition settings
+set edit_headers
+set editor = "nvim"
+set mime_type_query_command = "xdg-mime query filetype"
+
+# Lists
+subscribe kernel-janitors@vger.kernel.org rust-for-linux@vger.kernel.org
+
+# Colors
+## Theme kindly inspired from
+## http://nongeekshandbook.blogspot.ie/2009/03/mutt-color-configuration.html
+## and
+## https://wiki.archlinux.org/index.php/mutt#Colors
+
+## Colours for items in the index
+# First, distinguish mailing list/cc from to=me
+color index yellow default "!~p"
+color index white default "~p!~P"
+color index brightyellow default "(~N|~O|~U)!~p"
+color index brightwhite default "(~N|~O|~U)~p"
+# Next, mark other messages
+color index magenta default ~Q # replied
+color index color243 default ~P # from me
+color index brightblue default ~T # selected
+color index red default ~D # deleted
+mono index bold ~N
+mono index bold ~O
+mono index bold ~F
+mono index bold ~T
+mono index bold ~D
+
+## Highlights inside the body of a message.
+
+## URLs
+color body red default "((https?|ftp)://|www)[\-\.\;@,/%~_:?&=\#a-zA-Z0-9+*]+"
+color body red default "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+
+## Email addresses.
+color body red default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+## Header
+color hdrdefault default default
+color header blue default "^from:"
+color header blue default "^reply-to:"
+color header blue default "^subject:"
+
+## Coloring quoted text - coloring the first 7 levels:
+color quoted color243 default
+color quoted1 yellow default
+color quoted2 magenta default
+color quoted3 green default
+color quoted4 color243 default
+color quoted5 yellow default
+color quoted6 magenta default
+color quoted7 green default
+
+## Default color definitions
+color indicator black yellow
+color attachment magenta default
+color error red default
+color message white default
+color search brightwhite magenta
+color status black blue
+color tree brightblue default
+color normal white default
+color tilde brightred default
+color bold brightyellow default
+#color underline magenta default
+color markers brightred default
+
+## Colour definitions when on a mono screen
+mono bold bold
+mono underline underline
+mono indicator reverse
+
+# PGP messages
+color  body green default "^Good signature .*"
+color  body red   default "^\\*BAD\\* signature from.*"
+mono   body bold          "^Good signature"
+mono   body bold          "^\\*BAD\\* signature from.*"

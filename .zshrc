@@ -17,7 +17,7 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 # Envirionment
-export EDITOR=nvim
+export EDITOR=vim
 if command -v bat > /dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
     export MANROFFOPT="-c"

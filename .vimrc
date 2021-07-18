@@ -85,12 +85,12 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
 
 set number relativenumber
 set hidden
-syntax enable
 filetype plugin indent on
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set expandtab
+set shiftwidth=8
+set softtabstop=8
+set tabstop=8
+set noexpandtab
+set title
 
 set undodir=~/.vimdid
 set undofile

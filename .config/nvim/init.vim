@@ -21,6 +21,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'bkad/CamelCaseMotion'
 Plug 'chriskempson/base16-vim'
 Plug 'rhysd/vim-clang-format'
+Plug 'editorconfig/editorconfig-vim'
 
 " Fuzzy search
 Plug 'airblade/vim-rooter'
@@ -92,10 +93,6 @@ set number relativenumber
 set hidden
 syntax enable
 filetype plugin indent on
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set expandtab
 
 set undodir=~/.vimdid
 set undofile

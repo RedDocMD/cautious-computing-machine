@@ -196,4 +196,5 @@
         "HTML (Eex)",
         "plist"
     ],
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
 }
