@@ -1,10 +1,17 @@
-# Greeting
+# greeting
 function fish_greeting
 end
 
-# Key bindings
 function fish_user_key_bindings
-	fzf_key_bindings
+    fzf_key_bindings
+end
+
+# terminal title
+function fish_title
+    set -q argv[1]; or set argv fish
+    # Looks like ~/d/fish: git log
+    # or /e/apt: fish
+    echo (fish_prompt_pwd_dir_length=1 prompt_pwd);
 end
 
 # Set environment variables
@@ -61,9 +68,11 @@ abbr -a paci "pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro s
 set -px PATH $HOME/.local/bin
 set -px PATH $HOME/.local/share/gem/ruby/3.0.0/bin
 set -px PATH $HOME/.cargo/bin
-set -px PATH $HOME/software/node-v14.17.1-linux-x64/bin
+set -px PATH $HOME/software/node-v14.17.3-linux-x64/bin
 set -px PATH $HOME/software/platform-tools
 set -px PATH $HOME/software/julia-1.6.1/bin
+set -px PATH $HOME/fuchsia/.jiri_root/bin
+source ~/fuchsia/scripts/fx-env.fish
 
 # For ccache
 if command -v ccache > /dev/null

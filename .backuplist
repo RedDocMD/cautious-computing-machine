@@ -20,7 +20,7 @@ upd-conf.py
 .xmonad/xmonad.hs
 .config/xmobar/xmobarrc
 .config/xmobar/xpm/
-.xinitrc
+# .xinitrc
 
 # polybar
 .config/polybar/config

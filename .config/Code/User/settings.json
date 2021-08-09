@@ -1,9 +1,9 @@
 {
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+        "*.ipynb": "jupyter-notebook"
     },
     "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "FiraCode NF",
+    "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "window.menuBarVisibility": "compact",
     "window.titleBarStyle": "custom",
@@ -196,4 +196,11 @@
         "HTML (Eex)",
         "plist"
     ],
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "rust-client.engine": "rust-analyzer",
 }
