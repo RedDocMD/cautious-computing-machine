@@ -72,7 +72,15 @@ set -px PATH $HOME/software/node-v14.17.3-linux-x64/bin
 set -px PATH $HOME/software/platform-tools
 set -px PATH $HOME/software/julia-1.6.1/bin
 set -px PATH $HOME/fuchsia/.jiri_root/bin
+set -px PATH $HOME/software/go/bin
+set -px PATH $HOME/.local/share/coursier/bin
 source ~/fuchsia/scripts/fx-env.fish
+set -px PATH $HOME/.linuxbrew/bin $HOME/.linuxbrew/sbin
+
+# Homebrew
+set -x HOMEBREW_PREFIX "/home/dknite/.linuxbrew"
+set -x HOMEBREW_CELLAR "/home/dknite/.linuxbrew/Cellar"
+set -x HOMEBREW_REPOSITORY "/home/dknite/.linuxbrew/Homebrew"
 
 # For ccache
 if command -v ccache > /dev/null

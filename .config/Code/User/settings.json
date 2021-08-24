@@ -203,4 +203,21 @@
         "jupyter-notebook": "left"
     },
     "rust-client.engine": "rust-analyzer",
+    "remote.SSH.showLoginTerminal": true,
+    "remote.SSH.useLocalServer": false,
+    "remote.SSH.remotePlatform": {
+        "65.1.182.122": "linux"
+    },
+    "cSpell.userWords": [
+        "LLVM",
+        "Majumder",
+        "Malloc",
+        "Modellling",
+        "codebases",
+        "comparision",
+        "deallocation",
+        "dknite",
+        "modellable",
+        "pseudocode"
+    ]
 }
