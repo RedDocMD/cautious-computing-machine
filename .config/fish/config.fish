@@ -76,6 +76,7 @@ set -px PATH $HOME/software/go/bin
 set -px PATH $HOME/.local/share/coursier/bin
 source ~/fuchsia/scripts/fx-env.fish
 set -px PATH $HOME/.linuxbrew/bin $HOME/.linuxbrew/sbin
+set -px PATH $HOME/software/spark-3.1.2-bin-hadoop2.7/bin
 
 # Homebrew
 set -x HOMEBREW_PREFIX "/home/dknite/.linuxbrew"
@@ -92,3 +93,4 @@ end
 if command -v starship > /dev/null
     starship init fish | source
 end
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/dknite/.ghcup/bin $PATH # ghcup-env

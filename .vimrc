@@ -18,7 +18,7 @@ Plug 'airblade/vim-gitgutter'
 " GUI plugins
 " Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
-" Plug 'bkad/CamelCaseMotion'
+Plug 'bkad/CamelCaseMotion'
 Plug 'chriskempson/base16-vim'
 " Plug 'rhysd/vim-clang-format'
 
@@ -362,14 +362,12 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " Start NERDTree and leave the cursor in it.
 autocmd VimEnter * NERDTree
 
-"" CamelCaseMotion
-" if has('nvim')
-" 	map <silent> w <Plug>CamelCaseMotion_w
-" 	map <silent> b <Plug>CamelCaseMotion_b
-" 	map <silent> e <Plug>CamelCaseMotion_e
-" 	map <silent> ge <Plug>CamelCaseMotion_ge
-" 	sunmap w
-" 	sunmap b
-" 	sunmap e
-" 	sunmap ge
-" endif
+" CamelCaseMotion
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
