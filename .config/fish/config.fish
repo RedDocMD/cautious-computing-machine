@@ -93,4 +93,12 @@ end
 if command -v starship > /dev/null
     starship init fish | source
 end
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/dknite/.ghcup/bin $PATH # ghcup-env
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /home/dknite/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+if command -v conda > /dev/null
+    conda deactivate
+end
+# <<< conda initialize <<<
+

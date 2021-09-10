@@ -209,15 +209,16 @@
         "65.1.182.122": "linux"
     },
     "cSpell.userWords": [
+        "codebases",
+        "comparision",
+        "concat",
+        "deallocation",
+        "dknite",
         "LLVM",
         "Majumder",
         "Malloc",
-        "Modellling",
-        "codebases",
-        "comparision",
-        "deallocation",
-        "dknite",
         "modellable",
+        "Modellling",
         "pseudocode"
     ]
 }
