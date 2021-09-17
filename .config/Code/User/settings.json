@@ -155,7 +155,7 @@
     "clang-format.assumeFilename": ".clang-format",
     "git.confirmSync": false,
     "rust-analyzer.completion.addCallArgumentSnippets": false,
-    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
     "redhat.telemetry.enabled": false,
     "[c]": {
         "editor.defaultFormatter": "xaver.clang-format"

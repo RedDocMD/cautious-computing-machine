@@ -102,3 +102,4 @@ if command -v conda > /dev/null
 end
 # <<< conda initialize <<<
 
+rvm default
