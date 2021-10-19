@@ -70,7 +70,7 @@ set -px PATH $HOME/.local/share/gem/ruby/3.0.0/bin
 set -px PATH $HOME/.cargo/bin
 set -px PATH $HOME/software/node-v14.17.3-linux-x64/bin
 set -px PATH $HOME/software/platform-tools
-set -px PATH $HOME/software/julia-1.6.1/bin
+set -px PATH $HOME/software/julia-1.6.2/bin
 set -px PATH $HOME/fuchsia/.jiri_root/bin
 set -px PATH $HOME/software/go/bin
 set -px PATH $HOME/.local/share/coursier/bin
@@ -94,6 +94,12 @@ if command -v starship > /dev/null
     starship init fish | source
 end
 
+# zoxide
+if command -v zoxide > /dev/null
+    zoxide init fish | source
+    abbr -a cd z
+end
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 eval /home/dknite/anaconda3/bin/conda "shell.fish" "hook" $argv | source
@@ -103,3 +109,7 @@ end
 # <<< conda initialize <<<
 
 rvm default
+
+# Generated for envman. Do not edit.
+test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
+

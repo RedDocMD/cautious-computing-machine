@@ -3,7 +3,7 @@
         "*.ipynb": "jupyter-notebook"
     },
     "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "Fira Code",
+    "editor.fontFamily": "Hack Nerd Font",
     "editor.fontLigatures": true,
     "window.menuBarVisibility": "compact",
     "window.titleBarStyle": "custom",
@@ -155,7 +155,7 @@
     "clang-format.assumeFilename": ".clang-format",
     "git.confirmSync": false,
     "rust-analyzer.completion.addCallArgumentSnippets": false,
-    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "workbench.colorTheme": "One Dark Pro",
     "redhat.telemetry.enabled": false,
     "[c]": {
         "editor.defaultFormatter": "xaver.clang-format"
@@ -214,11 +214,24 @@
         "concat",
         "deallocation",
         "dknite",
+        "eval",
+        "getset",
         "LLVM",
         "Majumder",
         "Malloc",
         "modellable",
         "Modellling",
-        "pseudocode"
-    ]
+        "pseudocode",
+        "repr",
+        "thiserror"
+    ],
+    "ruby.useLanguageServer": true,
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.symbolCacheDownload": true,
+    "julia.enableTelemetry": true,
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    }
 }

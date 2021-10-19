@@ -1,6 +1,6 @@
 " Set the leader
 let mapleader = "\<Space>"
-set guifont="Hasklug NF":h11
+set guifont="Fira Code":h11
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -65,7 +65,6 @@ end
 set termguicolors
 set background=dark
 let base16colorspace=256
-let g:base16_shell_path="~/dev/others/base16/templates/shell/scripts/"
 colorscheme base16-gruvbox-dark-hard
 syntax on
 hi Normal ctermbg=NONE

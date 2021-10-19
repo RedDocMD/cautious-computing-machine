@@ -91,7 +91,7 @@ if executable('rg')
 	set grepformat=%f:%l:%c:%m
 endif
 
-let g:rustfmt_autosave = 1
+" let g:rustfmt_autosave = 1
 
 "Clang-Format
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
