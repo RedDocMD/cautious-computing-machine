@@ -4,6 +4,7 @@ upd-conf.py
 
 # vim
 .config/nvim/init.vim
+.config/nvim/scripts/spacetab.vim
 .config/nvim/coc-settings.json
 .vimrc
 
