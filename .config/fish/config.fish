@@ -73,6 +73,7 @@ set -px PATH $HOME/software/platform-tools
 set -px PATH $HOME/software/julia-1.6.2/bin
 set -px PATH $HOME/fuchsia/.jiri_root/bin
 set -px PATH $HOME/software/go/bin
+set -px PATH $HOME/go/bin
 set -px PATH $HOME/.local/share/coursier/bin
 source ~/fuchsia/scripts/fx-env.fish
 set -px PATH $HOME/.linuxbrew/bin $HOME/.linuxbrew/sbin

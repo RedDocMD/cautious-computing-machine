@@ -29,17 +29,28 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Semantic language support
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/lsp_extensions.nvim'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/lsp_extensions.nvim'
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
+Plug 'hrsh7th/cmp-path', {'branch': 'main'}
+Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+Plug 'ray-x/lsp_signature.nvim'
+
+" Only because nvim-cmp _requires_ snippets
+Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
+Plug 'hrsh7th/vim-vsnip'
 
 " Syntactic language support
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
 Plug 'rhysd/vim-clang-format'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -76,8 +87,39 @@ hi Normal ctermbg=NONE
 " call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
 
 " LSP configuration
-lua << END
+lua << EOF
 local lspconfig = require('lspconfig')
+local cmp = require('cmp')
+
+cmp.setup({
+  snippet = {
+    -- REQUIRED by nvim-cmp. get rid of it once we can
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  mapping = {
+    -- Tab immediately completes. C-n/C-p to select.
+    ['<Tab>'] = cmp.mapping.confirm({ select = true })
+  },
+  sources = cmp.config.sources({
+    -- TODO: currently snippets from lsp end up getting prioritized -- stop that!
+    { name = 'nvim_lsp' },
+  }, {
+    { name = 'path' },
+  }),
+  experimental = {
+    ghost_text = true,
+  },
+})
+
+-- Enable completing paths in :
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  })
+})
+
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -99,24 +141,84 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '[g', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']g', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
   -- Forward to other plugins
-  require'completion'.on_attach(client)
+  -- require'completion'.on_attach(client)
+
+  -- Get signatures (and _only_ signatures) when in argument lists.
+  require "lsp_signature".on_attach({
+    doc_lines = 0,
+    handler_opts = {
+      border = "none"
+    },
+  })
 end
 
-local servers = { "rust_analyzer", "clangd" }
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+-- Rust Analyzer
+lspconfig.rust_analyzer.setup {
     on_attach = on_attach,
     flags = {
-      debounce_text_changes = 150,
-    }
-  }
-end
+        debounce_text_changes = 150,
+    },
+    settings = {
+        ['rust-analyzer'] = {
+            assist = {
+                importGranularity = 'module',
+                importPrefix = 'by_self',
+            },
+            checkOnSave = {
+                command = 'clippy',
+            },
+            cargo = {
+                allFeatures = true
+            },
+        },
+    },
+    capabilities = capabilities,
+}
+
+-- Gopls
+lspconfig.gopls.setup {
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    cmd = {'gopls', 'serve'},
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
+    capabilities = capabilities,
+}
+
+-- Clangd
+lspconfig.clangd.setup {
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    capabilities = capabilities,
+}
+
+-- Dartls
+lspconfig.dartls.setup {
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    cmd = { 'dart', 'language-server' },
+    capabilities = capabilities,
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -125,7 +227,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     update_in_insert = true,
   }
 )
-END
+EOF
 
 " Plugin settings
 let g:secure_modelines_allowed_items = [
@@ -368,7 +470,7 @@ command! -bang -nargs=* Rg
 
 function! s:list_cmd()
   let base = fnamemodify(expand('%'), ':h:.:S')
-  return base == '.' ? 'fd --type file --follow' : printf('fd --type file --follow | proximity-sort %s', shellescape(expand('%')))
+  return base == '.' ? 'fdfind --type file --follow' : printf('fdfind --type file --follow | proximity-sort %s', shellescape(expand('%')))
 endfunction
 
 command! -bang -nargs=? -complete=dir Files
@@ -381,18 +483,6 @@ nnoremap <leader>o :e <C-R>=expand("%:p:h") . "/" <CR>
 " Move by line
 nnoremap j gj
 nnoremap k gk
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" use <Tab> as trigger keys
-imap <Tab> <Plug>(completion_smart_tab)
-imap <S-Tab> <Plug>(completion_smart_s_tab)
-
-" Enable type inlay hints
-autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ only_current_line = true }
 
 "=========================
 " Autocommands
