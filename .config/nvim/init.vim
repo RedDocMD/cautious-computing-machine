@@ -220,6 +220,21 @@ lspconfig.dartls.setup {
     capabilities = capabilities,
 }
 
+-- Haskell Language Server
+lspconfig.hls.setup {
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    cmd = { 'haskell-language-server-wrapper', '--lsp' },
+    settings = {
+        haskell = {
+            formattingProvider = 'brittany'
+        }
+    },
+    capabilities = capabilities,
+}
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = true,
@@ -500,3 +515,7 @@ endif
 " Follow Rust code style rules
 au Filetype rust source ~/.config/nvim/scripts/spacetab.vim
 au Filetype rust set colorcolumn=100
+
+" Also follow Haskell code styles
+au Filetype haskell source ~/.config/nvim/scripts/spacetab.vim
+au Filetype haskell set colorcolumn=100
