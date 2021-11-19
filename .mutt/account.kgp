@@ -1,0 +1,11 @@
+set imap_user="deepcoder@iitkgp.ac.in"
+set folder="imaps://iitkgpmail.iitkgp.ac.in/"
+set spoolfile="+INBOX"
+set from="deepcoder@iitkgp.ac.in"
+set record="+Sent"
+set postponed="+Drafts"
+
+set my_pw_kgp=`pass sec/mutt_kgpmail`
+set imap_pass=$my_pw_kgp
+set sendmail="/usr/bin/msmtp --account=kgpmail"
+unmailboxes *

@@ -43,3 +43,9 @@ upd-conf.py
 
 # emacs
 .emacs.d/init.el
+
+# neomutt
+.muttrc
+.msmtprc
+.mutt/account.fm
+.mutt/account.kgp

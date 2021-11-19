@@ -1,0 +1,176 @@
+hdr_order date subject from to cc
+
+set hostname=""
+set attribution="%n wrote:"
+set beep=no
+set beep_new=yes
+set compose_format="-- Compose[~%lb, attachments: %a]%>~"
+set date_format="!%b %d, %Y at %I:%M%p %Z"
+set imap_idle
+set imap_check_subscribed
+set allow_ansi=yes
+unset imap_passive
+unset imap_peek
+set index_format="%3C %Z %{%b %d} %s %* (%L)"
+set header_cache="~/.mutt/cache/headers"
+set message_cachedir="~/.mutt/cache/messages"
+set certificate_file="~/.mutt/certificates
+set mail_check=60
+set timeout=5
+set editor='nvim'
+set pgp_auto_decode=yes
+set send_charset="us-ascii:utf-8"
+set ssl_force_tls=yes
+set wrap=80
+set wait_key=no
+set mime_forward=no
+set mime_forward_rest=yes
+# http://nullprogram.com/blog/2017/06/15/
+# But this breaks on kernel patches!
+# set text_flowed
+# faster imap
+set imap_condstore=yes
+set imap_qresync=yes
+
+set sort="threads"
+set strict_threads=yes
+set collapse_unread=no
+set sort_browser="reverse-date"
+set sort_aux="reverse-last-date-received"
+bind index - collapse-thread
+bind index _ collapse-all
+
+unset use_domain
+set realname="Deep Majumder"
+set use_from=yes
+set use_envelope_from=yes
+set sendmail="/usr/bin/msmtp"
+ignore *
+unignore from to date subject cc X-Bugzilla-Who
+
+bind index G imap-fetch-mail
+bind index b search-opposite
+
+set abort_nosubject=no
+
+# Pager
+bind pager j next-line
+bind pager k previous-line
+bind pager H display-toggle-weed
+# Macro for compose?
+
+# Convenience
+# Jump to archive
+macro index A '<change-folder>!Archive<tab><enter>'
+# Jump to sent
+macro index O '<change-folder>!Sent<tab><enter>'
+# Jump to inbox
+macro index I '<change-folder>!<tab><enter>'
+# Save (tagged or current) to archive
+macro index S ';<save-message>!Archive<tab><enter><enter>'
+# Mark as spam
+macro index ! ';<save-message>!Junk<tab><enter><enter>'
+
+# Make deletion non-permanent
+macro index d 's!Trash<enter><enter>' "Move message to trash"
+macro pager d 's!Trash<enter><enter>' "Move message to trash"
+# and expunge explicit
+macro index x '<delete-message>' "Delete message permanently"
+macro pager x '<delete-message>' "Delete message permanently"
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+bind attach <return> view-mailcap
+
+source ~/.mutt/account.fm
+
+macro index <f1> '<sync-mailbox><enter-command>source ~/.mutt/account.fm<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.kgp<enter><change-folder>!<enter>'
+
+# Subscribe to mailing lists
+subscribe linux-kernel@vger.kernel.org \
+          linux-doc@vger.kernel.org \
+          rust-for-linux@vger.kernel.org
+
+# Aliases?
+
+# Colorize inline diffs, really helpful for LKML or other mailing lists where
+# mails frequently include patches.
+color   body        brightblue   default '^diff .*'
+color   body        brightblue   default '^@@ .*'
+color   body        green        default '^\+([^+].*)?$'
+color   body        red          default '^-([^-].*)?$'
+
+#source ~/dev/others/solarized/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
+## Theme kindly inspired from
+## http://nongeekshandbook.blogspot.ie/2009/03/mutt-color-configuration.html
+## and
+## https://wiki.archlinux.org/index.php/mutt#Colors
+
+## Colours for items in the index
+# First, distinguish mailing list/cc from to=me
+color index yellow default "!~p"
+color index white default "~p!~P"
+color index brightyellow default "(~N|~O|~U)!~p"
+color index brightwhite default "(~N|~O|~U)~p"
+# Next, mark other messages
+color index magenta default ~Q # replied
+color index color243 default ~P # from me
+color index brightblue default ~T # selected
+color index red default ~D # deleted
+mono index bold ~N
+mono index bold ~O
+mono index bold ~F
+mono index bold ~T
+mono index bold ~D
+
+## Highlights inside the body of a message.
+
+## URLs
+color body red default ((https?|ftp)://|www)[\-\.\;@,/%~_:?&=\#a-zA-Z0-9+*]+
+color body red default "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+
+## Email addresses.
+color body red default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+## Header
+color hdrdefault default default
+color header blue default "^from:"
+color header blue default "^reply-to:"
+color header blue default "^subject:"
+
+## Coloring quoted text - coloring the first 7 levels:
+color quoted color243 default
+color quoted1 yellow default
+color quoted2 magenta default
+color quoted3 green default
+color quoted4 color243 default
+color quoted5 yellow default
+color quoted6 magenta default
+color quoted7 green default
+
+## Default color definitions
+color indicator black yellow
+color attachment magenta default
+color error red default
+color message white default
+color search brightwhite magenta
+color status black blue
+color tree brightblue default
+color normal white default
+color tilde brightred default
+color bold brightyellow default
+#color underline magenta default
+color markers brightred default
+
+## Colour definitions when on a mono screen
+mono bold bold
+mono underline underline
+mono indicator reverse
+
+# PGP messages
+color  body green default "^Good signature .*"
+color  body red   default "^\\*BAD\\* signature from.*"
+mono   body bold          "^Good signature"
+mono   body bold          "^\\*BAD\\* signature from.*"
+
