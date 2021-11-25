@@ -6,3 +6,5 @@
 	autocrlf = input
 [init]
 	defaultBranch = main
+[http]
+	cookiefile = /home/dknite/.gitcookies

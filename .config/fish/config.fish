@@ -66,7 +66,6 @@ abbr -a paci "pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro s
 
 # PATH
 set -px PATH $HOME/.local/bin
-set -px PATH $HOME/.local/share/gem/ruby/3.0.0/bin
 set -px PATH $HOME/.cargo/bin
 set -px PATH $HOME/software/node-v14.17.3-linux-x64/bin
 set -px PATH $HOME/software/platform-tools
@@ -75,9 +74,11 @@ set -px PATH $HOME/fuchsia/.jiri_root/bin
 set -px PATH $HOME/software/go/bin
 set -px PATH $HOME/go/bin
 set -px PATH $HOME/.local/share/coursier/bin
-source ~/fuchsia/scripts/fx-env.fish
+if test -e ~/fuchsia/scripts/fx-env.fish
+    source ~/fuchsia/scripts/fx-env.fish
+end
 set -px PATH $HOME/.linuxbrew/bin $HOME/.linuxbrew/sbin
-set -px PATH $HOME/software/spark-3.1.2-bin-hadoop2.7/bin
+set -px PATH $HOME/.ghcup/bin
 
 # Homebrew
 set -x HOMEBREW_PREFIX "/home/dknite/.linuxbrew"
@@ -88,6 +89,10 @@ set -x HOMEBREW_REPOSITORY "/home/dknite/.linuxbrew/Homebrew"
 if command -v ccache > /dev/null
     set -x USE_CCACHE 1
     set -x CCACHE_EXEC /usr/bin/ccache
+    if test ! -e $HOME/.ccache
+        mkdir $HOME/.ccache
+    end
+    set -x CCACHE_DIR $HOME/.ccache
 end
 
 # starship
@@ -100,18 +105,3 @@ if command -v zoxide > /dev/null
     zoxide init fish | source
     abbr -a cd z
 end
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /home/dknite/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-if command -v conda > /dev/null
-    conda deactivate
-end
-# <<< conda initialize <<<
-
-rvm default
-
-# Generated for envman. Do not edit.
-test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
-
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/dknite/.ghcup/bin $PATH # ghcup-env
