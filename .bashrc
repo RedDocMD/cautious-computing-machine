@@ -17,8 +17,6 @@ if command -v exa > /dev/null; then
     alias lla="exa -la"
 fi
 
-# source autojump?
-
 # source fzf
 FZF_COMPLETIONS=/usr/share/fzf/completion.bash
 FZF_KEYBINDINGS=/usr/share/fzf/key-bindings.bash
@@ -84,3 +82,11 @@ fi
 export FIDLMISC_DIR=$HOME/software/fidl-misc/
 alias fidldev=$FIDLMISC_DIR/fidldev/fidldev.py
 export ASAN_SYMBOLIZER_PATH="$HOME/fuchsia/prebuilt/third_party/clang/linux-x64/bin/llvm-symbolizer"
+
+alias java11="$HOME/software/jdk-11.0.13+8/bin/java"
+
+# Base16 Shell
+BASE16_SHELL="$HOME/software/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"

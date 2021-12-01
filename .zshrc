@@ -1,5 +1,3 @@
-# The following lines were added by compinstall
-
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 zstyle ':completion:*' max-errors 2 numeric
@@ -7,17 +5,14 @@ zstyle :compinstall filename '/home/dknite/.zshrc'
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
+
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=50000
 setopt autocd
 bindkey -e
-# End of lines configured by zsh-newuser-install
 
-# Envirionment
-export EDITOR=nvim
+export EDITOR="nvim"
 if command -v bat > /dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
     export MANROFFOPT="-c"
@@ -25,76 +20,84 @@ fi
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export pager=less
 
-# autojump
-AUTOJUMP_PATH=/usr/share/autojump/autojump.zsh
-[ -f $AUTOJUMP_PATH ] && source $AUTOJUMP_PATH
-
-# aliases
+# exa for ls
 if command -v exa > /dev/null; then
-    alias ls='exa'
-    alias ll='exa -l'
-    alias la='exa -a'
-    alias lla='exa -la'
+    alias ls="exa"
+    alias ll="exa -l"
+    alias la="exa -a"
+    alias lla="exa -la"
 fi
+
+# source fzf
+FZF_COMPLETIONS=/usr/share/fzf/completion.zsh
+FZF_KEYBINDINGS=/usr/share/fzf/key-bindings.zsh
+[[ -e $FZF_COMPLETIONS ]] && source $FZF_COMPLETIONS
+[[ -e $FZF_KEYBINDINGS ]] && source $FZF_KEYBINDINGS
 
 # git aliases
-alias gaa='git add .'
-alias gcam='git commit -am'
-alias gcm='git commit -m'
-alias glog='git log --oneline --decorate --graph'
-alias gst='git status'
+alias gaa="git add ."
+alias gcam="git commit -am"
+alias gcm="git commit -m"
+alias glog="git log --oneline --decorate --graph"
+alias gst="git status"
 if command -v bat > /dev/null; then
-    alias gdf='git diff --name-only --diff-filter=d | xargs bat --diff'
+    alias gdf="git diff --name-only --diff-filter=d | xargs bat --diff"
 fi
 
+# diff function
 diff() {
-    if command -v diff-so-fancy > /dev/null; then
-        git diff --color $* | diff-so-fancy | less -r
-    else
-        git diff --color $*
-    fi
+  if command -v diff-so-fancy > /dev/null; then
+      git diff --color $@ | diff-so-fancy | less -r
+  else
+      git diff --color $@
+  fi
 }
 
-alias e=nvim
-
-# Dotfile repo
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
-# Pacman "interactive"
+# Because I am lazy
+alias e="nvim"
+alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias paci="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 
-# PATHS
-export PATH="$HOME/.local/bin":$PATH
-export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin":$PATH
-export PATH="$HOME/.cargo/bin":$PATH
-export PATH="$HOME/software/node-v14.17.3-linux-x64/bin":$PATH
-export PATH="$HOME/software/platform-tools":$PATH
-export PATH="$HOME/software/julia-1.6.1/bin":$PATH
-export PATH="$HOME/software/go/bin":$PATH
-export PATH=~/fuchsia/.jiri_root/bin:$PATH
-source ~/fuchsia/scripts/fx-env.sh
+# PATH
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/fuchsia/.jiri_root/bin:$PATH"
+if [[ -e "$HOME/fuchsia/scripts/fx-env.sh" ]]; then
+    source "$HOME/fuchsia/scripts/fx-env.sh"
+fi
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/software/go/bin:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
 
 # For ccache
 if command -v ccache > /dev/null; then
-    export USE_CACHE=1
-    export CCACHE_EXEC=/usr/bin/ccache
+    export USE_CCACHE=1
+    export CCACHE_EXEC=$(which ccache)
+    export CCACHE_DIR=$HOME/.ccache
+    if [[ ! -e "$CCACHE_DIR" ]]; then
+	mkdir $CCACHE_DIR
+    fi
 fi
 
+# starship
+if command -v starship > /dev/null; then
+    eval "$(starship init zsh)"
+fi
+
+# zoxide
+if command -v zoxide > /dev/null; then
+    eval "$(zoxide init zsh)"
+    alias cd=z
+fi
+
+export FIDLMISC_DIR=$HOME/software/fidl-misc/
+alias fidldev=$FIDLMISC_DIR/fidldev/fidldev.py
+export ASAN_SYMBOLIZER_PATH="$HOME/fuchsia/prebuilt/third_party/clang/linux-x64/bin/llvm-symbolizer"
+
+alias java11="$HOME/software/jdk-11.0.13+8/bin/java"
+
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
+BASE16_SHELL="$HOME/software/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-
-command -v starship > /dev/null && eval "$(starship init zsh)"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source /home/dknite/.config/broot/launcher/bash/br
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-

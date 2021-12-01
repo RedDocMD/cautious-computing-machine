@@ -3,7 +3,7 @@
         "*.ipynb": "jupyter-notebook"
     },
     "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "Hack Nerd Font",
+    "editor.fontFamily": "FiraCode Nerd Font Mono",
     "editor.fontLigatures": true,
     "window.menuBarVisibility": "compact",
     "window.titleBarStyle": "custom",
@@ -155,7 +155,7 @@
     "clang-format.assumeFilename": ".clang-format",
     "git.confirmSync": false,
     "rust-analyzer.completion.addCallArgumentSnippets": false,
-    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "workbench.colorTheme": "Dracula",
     "redhat.telemetry.enabled": false,
     "[c]": {
         "editor.defaultFormatter": "xaver.clang-format"

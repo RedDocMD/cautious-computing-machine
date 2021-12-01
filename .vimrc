@@ -1,6 +1,6 @@
 " Set the leader
 let mapleader = "\<Space>"
-set guifont="Fira Code":h11
+set guifont="FiraCode Nerd Font Mono":h11
 
 " Plugins
 call plug#begin('~/.vim/plugged')

@@ -14,7 +14,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'airblade/vim-gitgutter'
-"Plug 'kamykn/spelunker.vim'
+Plug 'ntpeters/vim-better-whitespace'
 
 " GUI plugins
 Plug 'itchyny/lightline.vim'
@@ -30,11 +30,6 @@ Plug 'junegunn/fzf.vim'
 
 " Semantic language support
 Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-lua/lsp_extensions.nvim'
-" Plug 'nvim-lua/completion-nvim'
-" Plug 'nvim-lua/popup.nvim'
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/lsp_extensions.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
 Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
@@ -62,7 +57,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
-"Plug 'takac/vim-hardtime'
 
 " Julia
 Plug 'JuliaEditorSupport/julia-vim'
@@ -79,12 +73,14 @@ end
 set termguicolors
 set background=dark
 let base16colorspace=256
-let g:base16_shell_path="~/dev/others/base16/templates/shell/scripts/"
+let g:base16_shell_path="~/software/base16-shell/scripts/"
 colorscheme base16-gruvbox-dark-hard
 syntax on
 hi Normal ctermbg=NONE
 " Brighter comments
-" call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
+call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
+" Make it clearly visible which argument we're at.
+call Base16hi("LspSignatureActiveParameter", g:base16_gui05, g:base16_gui03, g:base16_cterm05, g:base16_cterm03, "bold", "")
 
 " LSP configuration
 lua << EOF
@@ -178,6 +174,11 @@ lspconfig.rust_analyzer.setup {
             cargo = {
                 allFeatures = true
             },
+            completion = {
+                postfix = {
+                    enable = false,
+                }
+            }
         },
     },
     capabilities = capabilities,
@@ -324,7 +325,7 @@ set cmdheight=2
 set shortmess+=c
 
 "################################
-" Editor Settings               
+" Editor Settings
 "################################
 
 filetype plugin indent on
@@ -421,6 +422,10 @@ set shortmess+=c " don't give |ins-completion-menu| messages.
 " Show those damn hidden characters
 " Verbose: set listchars=nbsp:¬,eol:¶,extends:»,precedes:«,trail:•
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
+
+" Better whitespace
+let g:better_whitespace_ctermcolor='red'
+let g:better_whitespace_enabled=1
 
 "############################
 "#     Keybindings
