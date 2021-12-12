@@ -68,6 +68,9 @@ fi
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/software/go/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
+export PATH="/var/lib/snapd/snap/bin:$PATH"
+export PATH="$HOME/.nimble/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # For ccache
 if command -v ccache > /dev/null; then
@@ -95,6 +98,7 @@ alias fidldev=$FIDLMISC_DIR/fidldev/fidldev.py
 export ASAN_SYMBOLIZER_PATH="$HOME/fuchsia/prebuilt/third_party/clang/linux-x64/bin/llvm-symbolizer"
 
 alias java11="$HOME/software/jdk-11.0.13+8/bin/java"
+alias caff="_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' java11 -jar $HOME/software/CaffeineLeet.jar"
 
 # Base16 Shell
 BASE16_SHELL="$HOME/software/base16-shell/"

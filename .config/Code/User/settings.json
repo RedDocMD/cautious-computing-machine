@@ -160,7 +160,6 @@
     "[c]": {
         "editor.defaultFormatter": "xaver.clang-format"
     },
-    "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
     "[dart]": {
         "editor.formatOnSave": true,
@@ -234,5 +233,8 @@
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
     },
-    "cSpell.language": "en-GB"
+    "cSpell.language": "en-GB",
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.linux": "/home/dknite/.config/nvim/init.vim",
+    "editor.formatOnSave": true
 }
