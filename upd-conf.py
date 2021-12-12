@@ -56,7 +56,7 @@ with open(backup_file) as f:
 
     # Push to Github
     print("Pushing to Github ...")
-    push_comm = git_comm + ["push", "origin", "main"]
+    push_comm = git_comm + ["push", "origin", "collosus"]
     push_proc = subprocess.run(push_comm, capture_output=True, text=True)
     if push_proc.returncode != 0:
         print(push_proc.stderr, end='')
