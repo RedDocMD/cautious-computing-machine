@@ -35,9 +35,6 @@ upd-conf.py
 # picom
 .config/picom/picom.conf
 
-# git
-.gitconfig
-
 # vscode
 .config/Code/User/settings.json
 
