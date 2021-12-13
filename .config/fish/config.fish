@@ -105,3 +105,7 @@ if command -v zoxide > /dev/null
     zoxide init fish | source
     abbr -a cd z
 end
+
+# Generated for envman. Do not edit.
+test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
+
