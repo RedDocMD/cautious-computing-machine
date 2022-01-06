@@ -205,7 +205,8 @@
     "remote.SSH.showLoginTerminal": true,
     "remote.SSH.useLocalServer": false,
     "remote.SSH.remotePlatform": {
-        "65.1.182.122": "linux"
+        "65.1.182.122": "linux",
+        "192.168.29.108": "linux"
     },
     "cSpell.userWords": [
         "codebases",
@@ -236,5 +237,7 @@
     "cSpell.language": "en-GB",
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.linux": "/home/dknite/.config/nvim/init.vim",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "telemetry.telemetryLevel": "off",
+    "editor.fontSize": 15
 }
