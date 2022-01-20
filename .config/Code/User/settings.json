@@ -3,7 +3,7 @@
         "*.ipynb": "jupyter-notebook"
     },
     "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "FiraCode Nerd Font Mono",
+    "editor.fontFamily": "Hasklug Nerd Font",
     "editor.fontLigatures": true,
     "window.menuBarVisibility": "compact",
     "window.titleBarStyle": "custom",
@@ -155,7 +155,6 @@
     "clang-format.assumeFilename": ".clang-format",
     "git.confirmSync": false,
     "rust-analyzer.completion.addCallArgumentSnippets": false,
-    "workbench.colorTheme": "Dracula",
     "redhat.telemetry.enabled": false,
     "[c]": {
         "editor.defaultFormatter": "xaver.clang-format"
@@ -239,5 +238,6 @@
     "vscode-neovim.neovimInitVimPaths.linux": "/home/dknite/.config/nvim/init.vim",
     "editor.formatOnSave": true,
     "telemetry.telemetryLevel": "off",
-    "editor.fontSize": 15
+    "editor.fontSize": 15,
+    "workbench.colorTheme": "Material Theme Darker High Contrast"
 }
