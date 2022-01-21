@@ -29,13 +29,9 @@ font-1 = "Noto Sans Mono:size=10;1"
 font-2 = "Noto Sans Symbols:size=10;1"
 font-3 = "Noto Sans Symbols2:size=10;1"
 
-modules-left = date bspwm xwindow
+modules-left = bspwm xwindow
 modules-center =
-modules-right = pulseaudio wlan cpu memory
-
-tray-position = right
-tray-padding = 2
-tray-maxsize = 24
+modules-right =
 
 wm-restack = bspwm
 
@@ -51,7 +47,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 border-size = 0
-border-bottom-size = 11
+border-bottom-size = 1
 line-size = 2
 padding = 1
 module-margin = 1
