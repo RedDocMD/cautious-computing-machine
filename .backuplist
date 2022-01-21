@@ -31,6 +31,7 @@ upd-conf.py
 # bspwm
 .config/bspwm/bspwmrc
 .config/sxhkd/sxhkdrc
+.config/sxhkd/scripts/volume.sh
 
 # picom
 .config/picom/picom.conf
