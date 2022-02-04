@@ -23,7 +23,7 @@
             "after": [
                 "<Esc>"
             ]
-        },
+        }
     ],
     "vim.normalModeKeyBindings": [
         {
@@ -239,5 +239,6 @@
     "editor.formatOnSave": true,
     "telemetry.telemetryLevel": "off",
     "editor.fontSize": 15,
-    "workbench.colorTheme": "Material Theme Darker High Contrast"
+"workbench.colorTheme": "Material Theme Darker High Contrast",
+"mesonbuild.configureOnOpen": false
 }

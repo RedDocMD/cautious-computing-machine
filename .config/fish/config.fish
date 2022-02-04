@@ -96,8 +96,8 @@ if command -v ccache > /dev/null
 end
 
 # starship
-if command -v starship > /dev/null
-    starship init fish | source
+if command -v starship &> /dev/null
+    # starship init fish | source
 end
 
 # zoxide

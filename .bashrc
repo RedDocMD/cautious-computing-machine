@@ -69,9 +69,9 @@ if command -v ccache > /dev/null; then
 fi
 
 # starship
-if command -v starship > /dev/null; then
-    eval "$(starship init bash)"
-fi
+# if command -v starship > /dev/null; then
+#     eval "$(starship init bash)"
+# fi
 
 # zoxide
 if command -v zoxide > /dev/null; then
@@ -92,4 +92,4 @@ BASE16_SHELL="$HOME/software/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 . "$HOME/.cargo/env"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
