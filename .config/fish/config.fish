@@ -97,7 +97,7 @@ end
 
 # starship
 if command -v starship &> /dev/null
-    # starship init fish | source
+    starship init fish | source
 end
 
 # zoxide

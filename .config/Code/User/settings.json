@@ -29,7 +29,7 @@
         {
             "before": [
                 "<leader>",
-                "w"
+                "s"
             ],
             "commands": [
                 "workbench.action.files.save",
@@ -239,6 +239,6 @@
     "editor.formatOnSave": true,
     "telemetry.telemetryLevel": "off",
     "editor.fontSize": 15,
-"workbench.colorTheme": "Material Theme Darker High Contrast",
-"mesonbuild.configureOnOpen": false
+    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "mesonbuild.configureOnOpen": false
 }
